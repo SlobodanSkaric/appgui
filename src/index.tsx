@@ -10,14 +10,21 @@ import "bootstrap/dist/js/bootstrap.min.js";
 import "@fortawesome/free-solid-svg-icons";
 import "@fortawesome/react-fontawesome";
 import "@fortawesome/fontawesome-svg-core";
-import { ManeMenue } from "./commponents/ManeMenue/ManeMenue";
+import { MainMenuItem, ManeMenue } from "./commponents/ManeMenue/ManeMenue";
+
+const menuItems = [
+  new MainMenuItem("Home", "/"),
+  new MainMenuItem("AboutAs", "/aboutas"),
+  new MainMenuItem("Contact", "/contact"),
+  new MainMenuItem("Login", "/login"),
+];
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
 root.render(
   <React.StrictMode>
-    <ManeMenue></ManeMenue> 
+    <ManeMenue items={ menuItems }></ManeMenue> 
     <App />
   </React.StrictMode>
 );

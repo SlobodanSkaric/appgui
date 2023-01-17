@@ -1,18 +1,35 @@
 import  React from "react";
-import { Nav } from "react-bootstrap";
-import { Container } from "react-bootstrap";
+import { Nav, Container } from "react-bootstrap";
 
-export class ManeMenue extends React.Component{
+export class MainMenuItem{
+    text: string = "";
+    link: string = "#";
+
+    constructor(text: string, link: string){
+        this.text = text;
+        this.link = link;
+    }
+}
+
+interface MeinMenuProperties{
+    items: MainMenuItem[];
+}
+
+export class ManeMenue extends React.Component<MeinMenuProperties>{
     render(){
         return(
             <Container>
                  <Nav variant="tabs">
-                <Nav.Link href="/">Home</Nav.Link>
-                <Nav.Link href="/contact">Contact</Nav.Link>
-                <Nav.Link href="/login">Login</Nav.Link>
-            </Nav>
+                    { this.props.items.map(this.makeMenuItem) }
+                </Nav>
             </Container>
            
-        );           
+        );    
+    }
+
+    private makeMenuItem(menuItem: MainMenuItem){
+        return (
+            <Nav.Link href={ menuItem.link}>{ menuItem.text}</Nav.Link>
+        );
     }
 }
