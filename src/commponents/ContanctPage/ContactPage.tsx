@@ -13,12 +13,12 @@ export default class ContactPage extends React.Component{
                         <FontAwesomeIcon icon={faPhone} /> Contact
                         </Card.Title>
                         <Card.Text>
-                            Contact...
+                            Contact Page ...
                         </Card.Text>
                     </Card.Body>
                 </Card>
                 
             </Container>
-        )
+        );
     }
 }
