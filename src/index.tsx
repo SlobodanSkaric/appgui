@@ -1,7 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
-import App from './commponents/App/App';
 import reportWebVitals from './reportWebVitals';
 import "bootstrap/dist/css/bootstrap.min.css"
 import "jquery/dist/jquery.js";
@@ -11,6 +10,10 @@ import "@fortawesome/free-solid-svg-icons";
 import "@fortawesome/react-fontawesome";
 import "@fortawesome/fontawesome-svg-core";
 import { MainMenuItem, ManeMenue } from "./commponents/ManeMenue/ManeMenue";
+import HomePage from './commponents/HomePage/HomePage';
+import { HashRouter,Route,Routes } from 'react-router-dom';
+import ContactPage from './commponents/ContanctPage/ContactPage';
+import LoginPage from './commponents/LoginPage/LoginPage';
 
 const menuItems = [
   new MainMenuItem("Home", "/"),
@@ -25,7 +28,13 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <ManeMenue items={ menuItems }></ManeMenue> 
-    <App />
+    <HashRouter>
+      <Routes>
+        <Route path='/' element={ <HomePage /> } />
+        <Route path='/contact' element={ <ContactPage /> } />
+        <Route path='/login' element={ < LoginPage /> } />
+      </Routes>
+    </HashRouter>
   </React.StrictMode>
 );
 

@@ -5,7 +5,7 @@ import { faHome } from "@fortawesome/free-solid-svg-icons";
 import {FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 
-function App() {
+function HomePage() {
   return (
     <Container>
       <FontAwesomeIcon icon={faHome} /> Home
@@ -13,4 +13,4 @@ function App() {
   );
 }
 
-export default App;
+export default HomePage;
