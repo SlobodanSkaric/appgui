@@ -10,7 +10,7 @@ export default function api(path: string, method: "get" | "post" | "patch" | "de
             baseURL: ApiConfig.API_URL,
             data: JSON.stringify(body),
             headers: {
-                "Content-type" : "appication/json",
+                "Content-type" : "application/json",
                 "Authorization": getToken()
             }
         }
@@ -27,7 +27,7 @@ export default function api(path: string, method: "get" | "post" | "patch" | "de
    
 }
 
-interface ApiResponse {
+export interface ApiResponse {
     status: "ok" | "error" | "login",
     data: any;
 }
@@ -37,20 +37,21 @@ function getToken(){
     return token;
 }
 
-function saveToken(token: string): void{
+export function saveToken(token: string): void{
     localStorage.setItem("api_token", token);
 }
 
-function getRefreshToken(): string | null{
+export function getRefreshToken(): string | null{
     const token = localStorage.getItem("api_reresh_token");
     return token;
 }
 
-function saveRefreshToken(token: string){
+export function saveRefreshToken(token: string){
     localStorage.setItem("api_reresh_token", token);
 }
 
 async function responseHandelr(res: any,resolve: (value: ApiResponse) => void, requestData: { method: "get" | "post" | "patch" | "delete"; url: string; baseURL: string; data: string; headers: { "Content-type": string; Authorization: string | null; }; }){
+    console.log(res);
     if(res.status < 200 || res.status >= 300){
         const response: ApiResponse = {
             status: "error",

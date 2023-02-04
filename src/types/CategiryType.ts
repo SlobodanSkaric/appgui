@@ -5,6 +5,4 @@ export default class CategoryType{
     name?: string;
     items?: ArticleType[];
 
-    
-
 }
