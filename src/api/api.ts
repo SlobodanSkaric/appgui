@@ -51,7 +51,6 @@ export function saveRefreshToken(token: string){
 }
 
 async function responseHandelr(res: any,resolve: (value: ApiResponse) => void, requestData: { method: "get" | "post" | "patch" | "delete"; url: string; baseURL: string; data: string; headers: { "Content-type": string; Authorization: string | null; }; }){
-    console.log(res);
     if(res.status < 200 || res.status >= 300){
         const response: ApiResponse = {
             status: "error",
@@ -98,7 +97,7 @@ async function responseHandelr(res: any,resolve: (value: ApiResponse) => void, r
 }
 
 async function refreshToken(requestData: { method: "get" | "post" | "patch" | "delete"; url: string; baseURL: string; data: string; headers: { "Content-type": string; Authorization: string | null; }; }){
-    const path = "user/refresh";
+    const path = "auth/user/refresh";
     const data: any | null = {
         	token : getRefreshToken(),
 
@@ -110,7 +109,7 @@ async function refreshToken(requestData: { method: "get" | "post" | "patch" | "d
         baseURL: ApiConfig.API_URL,
         data: JSON.stringify(data),
         headers: {
-            "Content-type" : "appication/json",
+            "Content-type" : "application/json",
         }
     }
 
