@@ -16,12 +16,14 @@ import HomePage from './commponents/HomePage/HomePage';
 import ContactPage from './commponents/ContanctPage/ContactPage';
 import LoginPage from './commponents/LoginPage/LoginPage';
 import CategoryPage from './commponents/CategoryPage/CategoryPage';
+import { UserRegistratonPage } from './commponents/UserRegistrationPage/UserRegistrationPage';
 
 const menuItems = [
   new MainMenuItem("Home", "/"),
   new MainMenuItem("AboutAs", "aboutas"),
   new MainMenuItem("Contact", "/page/contact/"),
   new MainMenuItem("Login", "/user/login/"),
+  new MainMenuItem("Register", "/user/register/"),
 
   new MainMenuItem("Cat1", "/category/1/"),
   new MainMenuItem("Cat7", "/category/7/"),
@@ -40,6 +42,7 @@ root.render(
                               <Route exact  path="/" component={ HomePage } /> 
                               <Route path="/page/contact" component={ ContactPage } />
                               <Route path="/user/login" component={ LoginPage }/>
+                              <Route path="/user/register" component={ UserRegistratonPage }/>
                               <Route exact path="/category/:id" component={ CategoryPage }/>
                       </Switch>
       
