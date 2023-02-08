@@ -43,7 +43,7 @@ root.render(
                               <Route path="/page/contact" component={ ContactPage } />
                               <Route path="/user/login" component={ LoginPage }/>
                               <Route path="/user/register" component={ UserRegistratonPage }/>
-                              <Route exact path="/category/:id" component={ CategoryPage }/>
+                              <Route path="/category/:id" component={ CategoryPage }/>
                       </Switch>
       
     </React.StrictMode>
